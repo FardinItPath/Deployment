@@ -1,0 +1,198 @@
+
+<div class="card flex justify-center">
+    <p-dialog header="User Details" [modal]="true" [(visible)]="visible" [style]="{ width: '25rem' }">
+        <span class="p-text-secondary block mb-8">User Details</span>
+        <form method="addTaskBtn" (ngSubmit)="addUser()" #userForm="ngForm">
+            <div class="flex items-center gap-4 mb-4">
+                <label for="name" class="form-label">Full Name</label>
+                <input type="text" class="form-control" id="name" name="Name" [(ngModel)]="newUser.Name" required />
+            </div>
+            <div class="flex items-center gap-4 mb-8">
+                <label for="Gender" class="form-label">Gender</label>
+                <select class="form-select" id="Gender" name="Gender" [(ngModel)]="newUser.Gender">
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                </select>
+            </div>
+            <div class="flex justify-end gap-2">
+                <label for="subscription" class="form-label">Subscription Plan</label>
+                <select class="form-select" id="subscription" name="SubscriptionPlan"
+                    [(ngModel)]="newUser.SubscriptionPlan">
+                    <option value="None">None</option>
+                    <option value="Modrate">Modrate (06-Month)</option>
+                    <option value="Standard">Standard (12-Month)</option>
+                </select>
+            </div>
+            <div class="flex items-center gap-4 mb-4">
+                <label for="height" class="form-label">Height (cm)</label>
+                <input type="number" class="form-control" id="height" name="Height" [(ngModel)]="newUser.Height" />
+            </div>
+            <div class="flex items-center gap-4 mb-4">
+                <label for="weight" class="form-label">Weight (kg)</label>
+                <input type="number" class="form-control" id="weight" name="Weight" [(ngModel)]="newUser.Weight"
+                    required />
+            </div>
+            <div class="flex items-center gap-4 mb-4">
+                <label for="contact" class="form-label">Contact Number</label>
+                <input type="tel" class="form-control" id="contact" name="ContactNumber"
+                    [(ngModel)]="newUser.ContactNumber" required />
+            </div>
+            <div class="flex items-center gap-4 mb-4">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" class="form-control" id="email" name="Email" [(ngModel)]="newUser.Email" required />
+            </div>
+            <div class="flex items-center gap-4 mb-4 d-flex align-items-center justify-items-center ">
+                <label class="form-label">Active</label>
+                <!-- <p-toggleswitch  class="form-control" id="active" [(ngModel)]="checked" name="Active" [(ngModel)]="newUser.Active" required /> -->
+                <p-toggleswitch type="checkbox" id="active" name="Active" [(ngModel)]="checked"
+                    [(ngModel)]="newUser.Active" />
+            </div>
+            <div class="flex items-center gap-4 mb-4">
+                <label for="membership" class="form-label">Membership End Date</label>
+                <p-calendar class="form-control" [style]="{'width':'100%',}" [inputStyle]="{'width':'100%'}"
+                    id="membership" name="Membership" [(ngModel)]="newUser.Membership"
+                    dateFormat="dd/mm/yy"></p-calendar>
+            </div>
+            <div class="d-flex justify-content-center gap-3">
+                <button type="submit" class="btn btn-primary">Submit</button>
+
+            </div>
+        </form>
+    </p-dialog>
+</div>
+<!-- <div class="container d-flex justify-content-center align-items-center min-vh-100" *ngIf="isShowForm">
+    <div class="card p-4 shadow-lg border-primary" style="max-width: 500px; width: 100%;">
+        <h2 class="text-center mb-4">User Details</h2>
+        <form method="addTaskBtn" (ngSubmit)="addUser()" #userForm="ngForm">
+            <div class="mb-3">
+                <label for="name" class="form-label">Full Name</label>
+                <input type="text" class="form-control" id="name" name="Name" [(ngModel)]="newUser.Name" required />
+            </div>
+            <div class="mb-3">
+                <label for="Gender" class="form-label">Gender</label>
+                <select class="form-select" id="Gender" name="Gender" [(ngModel)]="newUser.Gender">
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label for="subscription" class="form-label">Subscription Plan</label>
+                <select class="form-select" id="subscription" name="SubscriptionPlan"
+                    [(ngModel)]="newUser.SubscriptionPlan">
+                    <option value="None">None</option>
+                    <option value="Modrate">Modrate (06-Month)</option>
+                    <option value="Standard">Standard (12-Month)</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label for="height" class="form-label">Height (cm)</label>
+                <input type="number" class="form-control" id="height" name="Height" [(ngModel)]="newUser.Height" />
+            </div>
+            <div class="mb-3">
+                <label for="weight" class="form-label">Weight (kg)</label>
+                <input type="number" class="form-control" id="weight" name="Weight" [(ngModel)]="newUser.Weight"
+                    required />
+            </div>
+            <div class="mb-3">
+                <label for="contact" class="form-label">Contact Number</label>
+                <input type="tel" class="form-control" id="contact" name="ContactNumber"
+                    [(ngModel)]="newUser.ContactNumber" required />
+            </div>
+
+            <div class="mb-3">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" class="form-control" id="email" name="Email" [(ngModel)]="newUser.Email" required />
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Active</label>
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" id="active" name="Active"
+                        [(ngModel)]="newUser.Active" />
+                </div>
+            </div>
+            <div class="mb-3">
+                <label for="membership" class="form-label">Membership End Date</label>
+                <p-calendar id="membership" name="Membership" [(ngModel)]="newUser.Membership"
+                    dateFormat="dd/mm/yy"></p-calendar>
+            </div>
+
+            <div class="d-flex justify-content-center gap-3">
+                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="button" class="btn btn-danger" (click)="deleteUser()">Cancel</button>
+            </div>
+        </form>
+    </div>
+</div> -->
+
+<div class="d-flex justify-content-center align-items-center w-100 mt-5">
+    <div class="card  border-1">
+        <div class="text-end">
+            <!-- <p-button label="Add Details" severity="info" (click)="addNewTask()" /> -->
+            <p-button (click)="showDialog()" label="Add New User" />
+        </div>
+        <p-table [value]="user" [paginator]="true" [rows]="5" [tableStyle]="{ 'min-width': '50rem' }"
+            [rowsPerPageOptions]="[5, 10, 20]">
+            <ng-template #header>
+                <tr>
+                    <th pSortableColumn="EnrollmentNo" style="width:25%">
+                        EnrollmentNo <p-sortIcon field="EnrollmentNo" />
+                    </th>
+                    <th pSortableColumn="Name" style="width:25%">
+                        Full Name <p-sortIcon field="Name" />
+                    </th>
+                    <th pSortableColumn="Gender" style="width:25%">
+                        Gender
+                    </th>
+                    <th pSortableColumn="SubscriptionPlan" style="width:25%">
+                        Subscription Plan<p-sortIcon field="SubscriptionPlan" />
+                    </th>
+                    <th pSortableColumn="Height" style="width:25%">
+                        Height (in Cm) <p-sortIcon field="Height" />
+                    </th>
+                    <th pSortableColumn="Weight" style="width:25%">
+                        Weight (in Kg)<p-sortIcon field="Weight" />
+                    </th>
+                    <th pSortableColumn="ContactNumber" style="width:25%">
+                        Contact Number<p-sortIcon field="ContactNumber" />
+                    </th>
+                    <th pSortableColumn="Email" style="width:25%">
+                        Email<p-sortIcon field="Email" />
+                    </th>
+                    <th pSortableColumn="Active" style="width:25%">
+                        Active<p-sortIcon field="Active" />
+                    </th>
+                    <th pSortableColumn="Membership" style="width:25%">
+                        Membership End Date<p-sortIcon field="membership" />
+                    </th>
+                    <th pSortableColumn="Full Name" style="width:25%">
+                        Actions
+                    </th>
+                </tr>
+            </ng-template>
+            <ng-template #body let-user>
+                <tr>
+                    <td>{{user.EnrollmentNo}}</td>
+                    <td>{{user.Name}}</td>
+                    <td>{{user.Gender}}</td>
+                    <td>{{user.SubscriptionPlan}}</td>
+                    <td>{{user.Height}}</td>
+                    <td>{{user.Weight}}</td>
+                    <td>{{user.ContactNumber}}</td>
+                    <td>{{user.Email}}</td> 
+                    <td>{{user.Active ? 'Yes' : 'No'}}</td>
+                    <td>{{user.Membership| date: 'dd/MM/yyyy'}}</td>
+                    <td>
+                        <div class="d-flex gap-2">
+                            <button pButton class="p-button-warning p-mr-2"><span><i
+                                        class="pi pi-pencil"></i></span></button>
+                            <button pButton class="p-button-danger p-mr-2" (click)="deleteUser(user)"><span><i class="pi pi-trash"
+                                        style="font-size: 1rem"></i></span></button>
+                        </div>
+                    </td>
+                </tr>
+            </ng-template>
+        </p-table>
+    </div>
+</div>
+<div>

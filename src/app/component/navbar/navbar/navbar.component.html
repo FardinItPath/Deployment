@@ -1,0 +1,57 @@
+<!-- <p-menubar [model]="items" >
+    <ng-template #start>
+    </ng-template>
+    <ng-template #item let-item let-root="root">
+        <a pRipple class="flex items-center p-menubar-item-link">
+            <span>{{ item.label }}</span>
+            <p-badge *ngIf="item.badge" [ngClass]="{ 'ml-auto': !root, 'ml-2': root }" [value]="item.badge" />
+            <span *ngIf="item.shortcut" class="ml-auto border border-surface rounded bg-emphasis text-muted-color text-xs p-1">{{ item.shortcut }}</span>
+            <i *ngIf="item.items" [ngClass]="['ml-auto pi', root ? 'pi-angle-down' : 'pi-angle-right']"></i>
+        </a>
+    </ng-template>
+    <ng-template #end>
+        <div class="flex items-center gap-2">
+            <input type="text" pInputText placeholder="Search" class="w-36" />
+            <p-button label="logout" type="button"  />
+        </div> -->
+
+        <!-- <p-button type="button" pRipple  label="Logout"  class="w-100 text-center" severity="success"  /> -->
+    <!-- </ng-template>
+</p-menubar> -->
+<nav>   
+    <div class="row px-5 py-2 align-items-center">
+        <div class=" col-6 d-flex  gap-5 mr-1 ">
+            <a routerLink="/child-1" routerLinkActive="active" >Member</a>
+            <a routerLink="/trainee" routerLinkActive="active">Trainee</a>
+            <a routerLink="/plans" routerLinkActive="active">Plans</a>
+        </div>
+        <div class="col-6 text-end">
+            <p-button label="logout" type="button"  />
+        </div>
+    </div>
+</nav>
+
+<!-- 
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Navbar</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a routerLink="/member" routerLinkActive="active" >Member</a>
+          </li>
+          <li class="nav-item">
+            <a routerLink="/plans" routerLinkActive="active">Plans</a>
+          </li>
+          <li class="nav-item">
+            <a routerLink="/trainee" routerLinkActive="active">Trainee</a>
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+  </nav> -->
+<router-outlet />
