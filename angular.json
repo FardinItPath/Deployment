@@ -20,7 +20,7 @@
               "zone.js",
               "@angular/localize/init"
             ],
-            "baseHref": "/Deployment",
+            "baseHref": "/Deployment/",
 
             "tsConfig": "tsconfig.app.json",
             "assets": [
