@@ -1,0 +1,10 @@
+.container{
+  height: 100vh;
+}
+.login-container{
+  width: 350px;
+  border-radius: 8px;
+}
+/* .loginBtn{
+  width: 100%;
+} */

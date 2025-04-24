@@ -1,0 +1,40 @@
+<div class="container d-flex justify-content-center align-items-center vh-100">
+      <div class="login-container card p-4 shadow-lg border-primary">
+            <h2 class="text-center">Login</h2>
+            <form #loginForm="ngForm">
+                  <div class="mb-3">
+                        <input pInputText type="email" [(ngModel)]="User.email" name="email" placeholder="Email"
+                              required class="form-control " #emailModel="ngModel">
+                        <small class="text-danger"
+                              *ngIf="emailModel.invalid && (emailModel.dirty|| emailModel.touched)">
+                              <span *ngIf="emailModel.errors?.['required']">Email is required.</span>
+                        </small>
+                  </div>
+                  <div class="mb-3">
+                        <p-password type="password" [(ngModel)]="User.password" [toggleMask]="true" name="password"
+                              class="login-password " [feedback]="false" placeholder="Password" required
+                              [style]="{'width':'100%',}" [inputStyle]="{'width':'100%'}" #passwordModel="ngModel">
+                        </p-password>
+                        <small class="text-danger"
+                              *ngIf="passwordModel.invalid && (passwordModel.dirty || passwordModel.touched)">
+                              <span *ngIf="passwordModel.errors?.['required']">Password is
+                                    required.</span>
+                        </small>
+                  </div>
+                  <p-button type="button" pRipple (click)="login(loginForm)" [disabled]="loginForm.invalid" label="Login"  class="w-100 text-center" severity="success" />
+                  
+                  <!-- <button pButton type="button" class="w-100" label="Login" (click)=></button> -->
+            </form>
+            <p class="text-danger mt-2 text-center">{{invalidCredential}}</p>
+            <div class="text-center mt-3">
+                  <div class="d-flex flex-col justify-content-center  align-items-center ">
+                        <div class="p-3">
+                              <a routerLink="/forget-pswd">Forget Password</a>
+                        </div>|
+                        <div class="p-3">
+                              <a routerLink="/signup">Create Account</a>
+                        </div>
+                  </div>
+            </div>
+      </div>
+</div>
